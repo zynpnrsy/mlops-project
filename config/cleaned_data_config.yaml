@@ -1,0 +1,23 @@
+experiment_name: telco-churn-cleaned-data
+
+random_state: 42
+
+data:
+  source: telco_cleaned.csv
+  test_size: 0.2
+
+rebalancing:
+  use_oversampling: true
+
+model:
+  main:
+    type: randomforest
+    # type: xgboost  # xgboost yoksa RF kullan
+
+thresholds:
+  production_min_pr_auc: 0.60
+  production_min_roc_auc: 0.65
+  production_min_recall: 0.55
+
+registry:
+  model_name: telco_churn_classifier_cleaned
